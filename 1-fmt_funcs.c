@@ -18,6 +18,3 @@ int print_hex(unsigned int n)
 	_putchar(n % 0x10 + '0');
 	return (a);
 }
-		
-
-

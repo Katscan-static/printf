@@ -94,7 +94,7 @@ int print_oct(unsigned int o)
 }
 
 /**
- * print_num - print unsigned int
+ * print_dec - print unsigned int
  * @u: number to be printed
  * Return: number of characters
  */

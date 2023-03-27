@@ -6,4 +6,7 @@ int _printf(const char *format, ...);
 int fmt_str(char *c);
 int print_num(int n);
 int print_bin(unsigned int b);
+int print_oct(unsigned int o);
+int print_dec(unsigned int u);
+int print_hex(unsigned int n);
 #endif
