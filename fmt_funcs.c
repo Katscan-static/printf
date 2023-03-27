@@ -10,6 +10,9 @@ int fmt_str(char *c)
 {
 	int i = 0;
 
+	if (!c)
+		return (-1);
+
 	while (c[i])
 	{
 		_putchar(c[i]);
