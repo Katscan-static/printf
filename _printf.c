@@ -30,6 +30,10 @@ int check_spec(char c, va_list list)
 	{
 		s += print_num(va_arg(list, int));
 	}
+	else if (c == 'b')
+	{
+		s += print_bin(va_arg(list, unsigned int));
+	}
 	else
 	{
 		return (-1);

@@ -51,3 +51,25 @@ int print_num(int n)
 		i++;
 	return (i);
 }
+
+/**
+ * print_bin - print binary representation
+ * @b: number to be printed
+ * Return: number of chracters
+ */
+
+int print_bin(unsigned int b)
+{
+	int i;
+
+	if (!(b / 2))
+	{
+		_putchar(b % 2 + '0');
+		return (1);
+	}
+
+	i = 1 + print_bin(b / 2);
+	_putchar(b % 2 + '0');
+
+	return (i);
+}
