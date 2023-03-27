@@ -35,7 +35,7 @@ int print_num(int n)
 	{
 		t = 1;
 		_putchar('-');
-		n = ~n + 1;
+		n = n * -1;
 	}
 
 	if ((n / 10) == 0)
