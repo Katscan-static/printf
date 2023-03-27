@@ -1,11 +1,11 @@
 #include <stdio.h>
 #include <stdarg.h>
 /**
- * printf - handles a specifier
+ * _1printf - handles a specifier
  * @format: first
  * Return: an int
  */
-int printf(const char *format, ...)
+int _1printf(const char *format, ...)
 {
 	int m = 0;
 	va_list list;

@@ -2,6 +2,43 @@
 #include <stdarg.h>
 
 /**
+ * check_spec - check specifier
+ * @c: character check
+ * @list: va_list to be passed
+ * Return: character len
+ */
+
+int check_spec(char c, va_list list)
+{
+	int i = 0, s = 0;
+
+	if (c == 'c')
+	{
+		_putchar(va_arg(list, int));
+		i++;
+	}
+	else if (c == 's')
+	{
+		s += fmt_str(va_arg(list, char *));
+	}
+	else if (c == '%')
+	{
+		_putchar('%');
+		i++;
+	}
+	else if (c == 'd' || c == 'i')
+	{
+		s += print_num(va_arg(list, int));
+	}
+	else
+	{
+		return (-1);
+	}
+
+	return (s + i);
+}
+
+/**
  * _printf - prints char and returns number of chars
  * @format: fisrt string argument
  * @...: additional arguments
@@ -21,28 +58,7 @@ int _printf(const char *format, ...)
 		if (*format == '%')
 		{
 			format += 1;
-			if (*format == 'c')
-			{
-				_putchar(va_arg(list, int));
-				i++;
-			}
-			else if (*format == 's')
-			{
-				s += fmt_str(va_arg(list, char *));
-			}
-			else if (*format == '%')
-			{
-				_putchar('%');
-				i++;
-			}
-			else if (*format == 'd' || *format == 'i')
-			{
-				s += print_num(va_arg(list, int));
-			}
-			else
-			{
-				return (-1);
-			}
+			s += check_spec(*format, list);
 			format += 1;
 		}
 		else
