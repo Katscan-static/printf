@@ -3,6 +3,5 @@
 
 int _putchar(char c);
 int _printf(const char *format, ...);
-int printf(const char *format, ...);
 int fmt_str(char *c);
 #endif

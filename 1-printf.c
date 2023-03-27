@@ -23,20 +23,20 @@ int printf(const char *format, ...)
 					m += fprintf(stdout, "%d", va_arg(list, int));
 					break;
 				case 'c':
-					m += _putchar(va_arg(list, int));
+					m += putchar(va_arg(list, int));
 					break;
 				default:
-					m += _putchar('%');
-					m += _putchar(*format);
+					m += putchar('%');
+					m += putchar(*format);
 					break;
 			}
 		}
 		else
 		{
-			m += _putchar(*format);
+			m += putchar(*format);
 		}
 		format++;
 	}
 	va_end(list);
-	return (m);	
+	return (m);
 }

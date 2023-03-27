@@ -28,12 +28,16 @@ int _printf(const char *format, ...)
 			}
 			else if (*format == 's')
 			{
-				s = fmt_str(va_arg(list, char *));
+				s += fmt_str(va_arg(list, char *));
 			}
 			else if (*format == '%')
 			{
 				_putchar('%');
 				i++;
+			}
+			else if (*format == 'd' || *format == 'i')
+			{
+				s += print_num(va_arg(list, int));
 			}
 			else
 			{
