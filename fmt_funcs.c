@@ -73,3 +73,41 @@ int print_bin(unsigned int b)
 
 	return (i);
 }
+
+/**
+ * print_oct - print octal number
+ * @o: number to be printed
+ * Return: num of characters
+ */
+int print_oct(unsigned int o)
+{
+	int m;
+
+	if (!(o / 8))
+	{
+		_putchar(o % 8 + '0');
+		return (1);
+	}
+	m = 1 + print_oct(o / 8);
+	_putchar(o % 8 + '0');
+	return (m);
+}
+
+/**
+ * print_num - print unsigned int
+ * @u: number to be printed
+ * Return: number of characters
+ */
+int print_dec(unsigned int u)
+{
+	int j = 0;
+
+	if (!(u / 10))
+	{
+		_putchar(u % 10 + '0');
+		return (1);
+	}
+	j = 1 + print_dec(u / 10);
+	_putchar(u % 10 + '0');
+	return (j);
+}
