@@ -26,20 +26,26 @@ int print_hex(unsigned int n, char c)
 }
 /**
  * print_pointhexa - print hex numbers
- * @i: number to be printed
- * @s: char to be printed
+ * @ptr: pointer to be printed
  * Return: number of characteristics
  */
-int print_pointhexa(int i, char *s)
+int print_pointhexa(void *ptr)
 {
-	int m;
+	int m, s = 0;
+	unsigned long int p;
 	char *str = HEXADEC_S;
 
-	if (i < 0)
+	if (!ptr)
+		return (-1);
+
+	p = (unsigned long int)ptr;
+	if (!(p / 16))
 	{
-		_putchar('-');
-		i = i * -1;
+		s += _printf("0x");
+		_putchar(str[p % 16]);
+		return (s + 1);
 	}
+<<<<<<< HEAD
 	if (!(i / 0x10))
 	{
 		_putchar(str[i % 0x10]);
@@ -48,7 +54,13 @@ int print_pointhexa(int i, char *s)
 	m = 1 + print_pointhexa(i / 0x10, *s);
 	_putchar(str[i % 0x10]);
 	return (m);
+=======
+>>>>>>> 126ab85d6b15f0f5d8dc90766ce0d84a3feca807
 
+	m = 1 + print_pointhexa((void *)(p / 16));
+	_putchar(str[p % 16]);
+	return (m + s);
+}
 /**
  * print_s - print string and non printable char
  * @c: string to be printed
