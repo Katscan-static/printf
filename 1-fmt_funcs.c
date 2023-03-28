@@ -14,7 +14,7 @@ int print_hex(unsigned int n)
 		_putchar(n % 0x10 + '0');
 		return (1);
 	}
-	a = 1 = print_hex(n / 0x10);
+	a = 1 + print_hex(n / 0x10);
 	_putchar(n % 0x10 + '0');
 	return (a);
 }
