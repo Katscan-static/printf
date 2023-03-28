@@ -18,22 +18,22 @@ int check_spec(char c, va_list list)
 		i++;
 	}
 	else if (c == 's')
-	{
 		s += fmt_str(va_arg(list, char *));
-	}
 	else if (c == '%')
 	{
 		_putchar('%');
 		i++;
 	}
 	else if (c == 'd' || c == 'i')
-	{
 		s += print_num(va_arg(list, int));
-	}
 	else if (c == 'b')
-	{
 		s += print_bin(va_arg(list, unsigned int));
-	}
+	else if (c == 'o')
+		s += print_oct(va_arg(list, unsigned int));
+	else if (c == 'u')
+		s += print_dec(va_arg(list, unsigned int));
+	else if (c == 'x' || 'X')
+		s += print_hex(va_arg(list, unsigned int), c);
 	else
 	{
 		return (-1);
