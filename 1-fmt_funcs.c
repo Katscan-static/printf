@@ -24,7 +24,6 @@ int print_hex(unsigned int n, char c)
 	_putchar(str[n % 0x10]);
 	return (a);
 }
-<<<<<<< HEAD
 /**
  * print_pointhexa - print hex numbers
  * @i: number to be printed
@@ -49,7 +48,6 @@ int print_pointhexa(int i, char *s)
 	m = 1 + print_pointhexa(i / 0x10, *s);
 	_putchar(str[i % 0x10]);
 	return (m);
-=======
 
 /**
  * print_s - print string and non printable char
@@ -81,5 +79,4 @@ int print_s(char *c)
 		}
 	}
 	return (s + i);
->>>>>>> bb347c16490fbe6239d45a20accccb06f6e7c8b5
 }
