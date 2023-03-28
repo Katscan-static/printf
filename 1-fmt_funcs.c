@@ -33,7 +33,9 @@ int print_pointhexa(unsigned long int ptr)
 {
 	int m, s = 0;
 	char *str = HEXADEC_S;
-
+	
+	if (!ptr)
+		return (-1);
 	if (!(ptr / 16))
 	{
 		s += _printf("0x");
