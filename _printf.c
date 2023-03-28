@@ -34,6 +34,8 @@ int check_spec(char c, va_list list)
 		s += print_dec(va_arg(list, unsigned int));
 	else if (c == 'x' || 'X')
 		s += print_hex(va_arg(list, unsigned int), c);
+	else if (c == 'p')
+		s += print_pointhexa(va_arg(list, int), *s);
 	else
 	{
 		return (-1);
