@@ -79,6 +79,8 @@ int _printf(const char *format, ...)
 			}
 
 			s += check_spec(*format, list);
+			if (s == -1)
+				return (-1);
 			format += 1;
 		}
 		else
