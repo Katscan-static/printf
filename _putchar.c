@@ -11,9 +11,9 @@ int _putchar(char c)
 	static char buf[1024];
 	static int m;
 
-	while (m >= 1024 || c == -1)
+	if (m >= 1024 || c == m)
 	{
-		write(1, &buf, -1);
+		write(1, &buf, m);
 		m++;
 	}
 	if (m != -1)
