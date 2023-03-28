@@ -35,7 +35,7 @@ int check_spec(char c, va_list list)
 	else if (c == 'x' || c == 'X')
 		s += print_hex(va_arg(list, unsigned int), c);
 	else if (c == 'p')
-		s += print_pointhexa(va_arg(list, unsigned long int));
+		s += print_pointhexa((void *)va_arg(list, unsigned long int));
 	else if (c == 'S')
 		s += print_s(va_arg(list, char *));
 	else
