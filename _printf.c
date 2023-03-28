@@ -32,10 +32,15 @@ int check_spec(char c, va_list list)
 		s += print_oct(va_arg(list, unsigned int));
 	else if (c == 'u')
 		s += print_dec(va_arg(list, unsigned int));
-	else if (c == 'x' || 'X')
+	else if (c == 'x' || c == 'X')
 		s += print_hex(va_arg(list, unsigned int), c);
+<<<<<<< HEAD
 	else if (c == 'p')
 		s += print_pointhexa(va_arg(list, int), *s);
+=======
+	else if (c == 'S')
+		s += print_s(va_arg(list, char *));
+>>>>>>> bb347c16490fbe6239d45a20accccb06f6e7c8b5
 	else
 	{
 		return (-1);
@@ -74,6 +79,6 @@ int _printf(const char *format, ...)
 			i++;
 		}
 	}
-	_putchar(-1);
+	_putchar(-2);
 	return (i + s);
 }
