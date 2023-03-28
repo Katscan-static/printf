@@ -30,7 +30,7 @@ int _putchar(char c)
  */
 int _puts(char *str)
 {
-	int m;
+	register int m;
 
 	for (m = 0; str[m] != '\0'; m++)
 		_putchar(str[m]);
