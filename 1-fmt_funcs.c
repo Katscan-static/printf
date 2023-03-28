@@ -60,7 +60,7 @@ int print_s(char *c)
 	int i = 0, s = 0;
 
 	if (!c)
-		return (1);
+		return (_printf("(nil)"));
 
 	for (; c[i]; i++)
 	{
