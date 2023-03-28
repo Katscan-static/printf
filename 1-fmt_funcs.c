@@ -44,7 +44,10 @@ int print_s(char *c)
 		{
 			s += _printf("\\x");
 			if (c[i] < 0x10)
+			{
 				_putchar('0');
+				s += 1;
+			}
 			s += _printf("%X", c[i]);
 		}
 		else
