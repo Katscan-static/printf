@@ -43,7 +43,7 @@ int print_pointhexa(void *ptr)
 	{
 		s += _printf("0x");
 		_putchar(str[p % 16]);
-		return (1);
+		return (s + 1);
 	}
 
 	m = 1 + print_pointhexa((void *)(p / 16));
