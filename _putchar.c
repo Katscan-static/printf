@@ -11,28 +11,15 @@ int _putchar(char c)
 	static char buf[1024];
 	static int m;
 
-	if (m >= 1024 || c == m)
+	if (m >= 1024 || c == -1)
 	{
 		write(1, &buf, m);
-		m++;
+		m = 0;
 	}
-	if (m != -1)
+	if (c != -1)
 	{
-		c = buf[m];
+		buf[m] = c;
 		m++;
 	}
 	return (1);
-}
-/**
- * _puts - prints a string
- * @str: pointer to string
- * Return: number chars
- */
-int _puts(char *str)
-{
-	register int m;
-
-	for (m = 0; str[m] != '\0'; m++)
-		_putchar(str[m]);
-	return (m);
 }
