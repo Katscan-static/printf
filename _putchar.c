@@ -23,3 +23,16 @@ int _putchar(char c)
 	}
 	return (1);
 }
+/**
+ * _puts - prints a string
+ * @str: pointer to string
+ * Return: number chars
+ */
+int _puts(char *str)
+{
+	int m;
+
+	for (m = 0; str[m] != '\0'; m++)
+		_putchar(str[m]);
+	return (m);
+}
