@@ -9,4 +9,6 @@ int print_bin(unsigned int b);
 int print_oct(unsigned int o);
 int print_dec(unsigned int u);
 int print_hex(unsigned int n, char c);
+int print_s(char *s);
+int _puts(char *s);
 #endif
