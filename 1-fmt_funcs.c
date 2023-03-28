@@ -45,18 +45,6 @@ int print_pointhexa(void *ptr)
 		_putchar(str[p % 16]);
 		return (s + 1);
 	}
-<<<<<<< HEAD
-	if (!(i / 0x10))
-	{
-		_putchar(str[i % 0x10]);
-		return (1);
-	}
-	m = 1 + print_pointhexa(i / 0x10, *s);
-	_putchar(str[i % 0x10]);
-	return (m);
-=======
->>>>>>> 126ab85d6b15f0f5d8dc90766ce0d84a3feca807
-
 	m = 1 + print_pointhexa((void *)(p / 16));
 	_putchar(str[p % 16]);
 	return (m + s);
@@ -91,4 +79,28 @@ int print_s(char *c)
 		}
 	}
 	return (s + i);
+}
+
+/**
+ * flags - flags
+ * @c: charater of flag
+ * @c1: char specifier
+ * Return: char count
+ */
+
+int flags(char c, char c1)
+{
+	int i = -1;
+
+	if (c == '+' && (c1 == 'd' || c1 == 'i'))
+		i = _printf("%c", c);
+	else if (c == ' ' && (c1 == 'd' || c1 == 'i'))
+		i = _printf("%c", c);
+	else if (c == '#' && c1 == 'o')
+		i = _printf("%c", '0');
+	else if (c == '#' && c1 == 'x')
+		i = _printf("%s", "0x");
+	else if (c == '#' && c1 == 'X')
+		i = _printf("%s", "0X");
+	return (i);
 }

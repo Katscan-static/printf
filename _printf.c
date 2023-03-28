@@ -55,7 +55,8 @@ int check_spec(char c, va_list list)
 
 int _printf(const char *format, ...)
 {
-	int i = 0, s = 0;
+	int i = 0, s = 0, t = 0;
+	char f1, f2;
 	va_list list;
 
 	if (!format || (format[0] == '%' && !format[1]))
@@ -66,6 +67,16 @@ int _printf(const char *format, ...)
 		if (*format == '%')
 		{
 			format += 1;
+			f1 = *format;
+			if (f1 == ' ' || f1 == '+' || f1 == '#')
+			{
+				format += 1;
+				f2 = *format;
+				t = flags(f1, f2);
+				if (t == -1)
+					return (-1);
+			}
+
 			s += check_spec(*format, list);
 			format += 1;
 		}

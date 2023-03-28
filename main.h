@@ -12,4 +12,5 @@ int print_hex(unsigned int n, char c);
 int print_pointhexa(void *);
 int print_s(char *s);
 int _puts(char *s);
+int flags(char c, char c1);
 #endif
