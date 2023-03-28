@@ -75,7 +75,7 @@ int _printf(const char *format, ...)
 				t = flags(f1, f2);
 				if (t == -1)
 					return (-1);
-				s += t;
+				s += (t - 1);
 			}
 
 			s += check_spec(*format, list);
