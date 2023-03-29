@@ -4,13 +4,14 @@
 /**
  * check_spec - check specifier
  * @c: character check
+ * @f1: check flags
  * @list: va_list to be passed
  * Return: character len
  */
 
-int check_spec(char c, va_list list)
+int check_spec(char c, va_list list, char f1)
 {
-	int i = 0, s = 0;
+	int i = 0, s = 0, ft = 0;
 
 	if (c == 'c')
 	{
@@ -25,7 +26,12 @@ int check_spec(char c, va_list list)
 		i++;
 	}
 	else if (c == 'd' || c == 'i')
-		s += print_num(va_arg(list, int));
+	{
+		ft = va_arg(list, int);
+		if ((f1 == ' ' || f1 == '+') && ft < 0)
+			ft *= -1;
+		s += print_num(ft);
+	}
 	else if (c == 'b')
 		s += print_bin(va_arg(list, unsigned int));
 	else if (c == 'o')
@@ -39,10 +45,7 @@ int check_spec(char c, va_list list)
 	else if (c == 'S')
 		s += print_s(va_arg(list, char *));
 	else
-	{
 		return (-1);
-	}
-
 	return (s + i);
 }
 
@@ -55,7 +58,7 @@ int check_spec(char c, va_list list)
 
 int _printf(const char *format, ...)
 {
-	int i = 0, s = 0, t = 0;
+	int i = 0, s = 0, f = 0;
 	char f1, f2;
 	va_list list;
 
@@ -68,17 +71,17 @@ int _printf(const char *format, ...)
 		{
 			format += 1;
 			f1 = *format;
-			if (f1 == ' ' || f1 == '+' || f1 == '#')
+			if (f1 ==  ' ' || f1 == '+' || f1 == '#')
 			{
 				format += 1;
 				f2 = *format;
-				t = flags(f1, f2);
-				if (t == -1)
+				f = flags(f1, f2);
+				if (f == -1)
 					return (-1);
-				s += t;
+				s += f;
 			}
 
-			s += check_spec(*format, list);
+			s += check_spec(*format, list, f1);
 			if (s == -1)
 				return (-1);
 			format += 1;
