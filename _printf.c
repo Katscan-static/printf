@@ -1,6 +1,7 @@
 #include "main.h"
 #include <stdarg.h>
 
+
 /**
  * check_spec - check specifier
  * @c: character check
@@ -29,7 +30,7 @@ int check_spec(char c, va_list list, char f1)
 	{
 		ft = va_arg(list, int);
 		if ((f1 == ' ' || f1 == '+') && ft < 0)
-			ft *= -1;
+			ft = ~ft + 1;
 		s += print_num(ft);
 	}
 	else if (c == 'b')
@@ -53,6 +54,30 @@ int check_spec(char c, va_list list, char f1)
 	return (s + i);
 }
 
+/**
+ * fl_test - tests flags
+ * @t: value to be tested
+ * @f1: flag
+ * @f2: specifier
+ *
+ * Return: char count
+ */
+
+int fl_test(int t, char f1, char f2)
+{
+	int f = 0, s = 0;
+
+	if (t > 0)
+	{
+		f = flags(f1, f2);
+		s += print_num(t);
+	}
+	else
+		s += print_num(t);
+
+	return (f + s);
+
+}
 /**
  * _printf - prints char and returns number of chars
  * @format: fisrt string argument
@@ -79,13 +104,16 @@ int _printf(const char *format, ...)
 			{
 				format += 1;
 				f2 = *format;
-				f = flags(f1, f2);
+				if (f2 == 'd' || f2 == 'i')
+				{
+					s += fl_test(va_arg(list, int), f1, f2);
+				}
 				if (f == -1)
 					return (-1);
 				s += f;
 			}
-
-			s += check_spec(*format, list, f1);
+			else
+				s += check_spec(*format, list, f1);
 			if (s == -1)
 				return (-1);
 			format += 1;

@@ -1,4 +1,6 @@
 #include "main.h"
+#include <stdio.h>
+#include <limits.h>
 
 /**
  * fmt_str - print
@@ -34,8 +36,11 @@ int print_num(int n)
 	if (n < 0)
 	{
 		t = 1;
+		if (n == INT_MIN)
+			n = ~n;
+		else
+			n = -n;
 		_putchar('-');
-		n = n * -1;
 	}
 
 	if ((n / 10) == 0)
