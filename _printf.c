@@ -46,6 +46,8 @@ int check_spec(char c, va_list list, char f1)
 		s += print_s(va_arg(list, char *));
 	else if (c == 'R')
 		s += rot13(va_arg(list, char *));
+	else if (c == 'r')
+		s += rev(va_arg(list, char *));
 	else
 		return (-1);
 	return (s + i);
