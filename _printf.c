@@ -67,7 +67,7 @@ int fl_test(int t, char f1, char f2)
 {
 	int f = 0, s = 0;
 
-	if (t > 0)
+	if (t >= 0)
 	{
 		f = flags(f1, f2);
 		s += print_num(t);
