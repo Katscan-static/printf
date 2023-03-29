@@ -104,3 +104,33 @@ int flags(char c, char c1)
 		i = _printf("%s", "0X");
 	return (i);
 }
+
+/**
+ * rot13 - print Ceasar cipher
+ * @c: string to be printed
+ * Return: number of characters processed, or -1 if @c is NULL
+ */
+int rot13(char *c)
+{
+	char r;
+	int i = 0;
+
+	if (!c)
+		return (-1);
+	for (; c[i]; i++)
+	{
+		if (c[i] >= 'a' && c[i] <= 'z')
+		{
+			r = (((c[i] - 'a') + 13) % 26);
+			_printf("%c", (r + 'a'));
+		}
+		else if (c[i] >= 'A' && c[i] <= 'Z')
+		{
+			r = (((c[i] - 'A') + 13) % 26);
+			_printf("%c", (r + 'A'));
+		}
+		else
+			_printf("%c", c[i]);
+	}
+	return (i);
+}

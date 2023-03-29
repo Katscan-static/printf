@@ -44,6 +44,8 @@ int check_spec(char c, va_list list, char f1)
 		s += print_pointhexa((void *)va_arg(list, unsigned long int));
 	else if (c == 'S')
 		s += print_s(va_arg(list, char *));
+	else if (c == 'R')
+		s += rot13(va_arg(list, char *));
 	else
 		return (-1);
 	return (s + i);
