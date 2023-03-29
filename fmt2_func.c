@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdlib.h>
 
 /**
  * rev - prints the reverse of null terminated string
@@ -9,7 +10,8 @@
 
 int rev(char *c)
 {
-	int i = 0, j = 0;
+	int i = 0, j = 0, s = 0;
+	char *p;
 
 	if (!c)
 		return (0);
@@ -17,12 +19,18 @@ int rev(char *c)
 	while (c[i])
 		i++;
 
+	p = malloc(sizeof(char) * (i + 1));
+	if (!p)
+		return (0);
+
 	j = i - 1;
 
-	for (; j >= 0; j--)
+	for (; j >= 0; j--, s++)
 	{
-		_printf("%c", c[j]);
+		p[s] = c[j];
 	}
-
+	p[i] = '\0';
+	_printf("%s", p);
+	free(p);
 	return (i);
 }
