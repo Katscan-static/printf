@@ -12,7 +12,7 @@ int rev(char *c)
 	int i = 0, j = 0;
 
 	if (!c)
-		return ();
+		return (0);
 
 	while (c[i])
 		i++;
