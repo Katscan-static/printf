@@ -13,7 +13,7 @@ int fmt_str(char *c)
 	int i = 0;
 
 	if (!c)
-		return (-1);
+		c = "(nil)";
 
 	while (c[i])
 	{
